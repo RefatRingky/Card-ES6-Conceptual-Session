@@ -10,16 +10,19 @@ const searchButton = () =>{
         // alert('Please enter valid number');
         error.innerText = 'Please Enter an Number';
         input.value= "";
+        main.innerHTML = "";
     }
     else if(inputValue <0){
         error.innerText = "Plaese enter positive value";
         input.value= "";
+        main.innerHTML = "";
     }
     else{
         fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=${inputValue}`)
         .then(res => res.json())
         .then(data => cardsDisplay(data.cards))
         input.value= "";
+        error.innerHTML = "";
     }
     
 }

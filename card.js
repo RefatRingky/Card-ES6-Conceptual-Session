@@ -1,4 +1,4 @@
-const main =document.getElementById('main')
+const main =document.getElementById('main');
 // button onclick handler
 const searchButton = () =>{
     // input value
@@ -18,19 +18,32 @@ const searchButton = () =>{
     else{
         fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=${inputValue}`)
         .then(res => res.json())
-        .then(data => cardDisplay(data.cards))
+        .then(data => cardsDisplay(data.cards))
         input.value= "";
     }
     
 }
 
-const cardDisplay = (cards) =>{
+const cardsDisplay = (cards) =>{
+    // cards = cards.cards;
     console.log(cards);
     for(const card of cards){
-        const div = document.createElement('div');
-        div.innerHTML = `
-        
+        console.log(card);
+        const div = document.createElement("div");
+        div.classList.add("col-lg-4")
+        div.classList.add("mb-5")
+        div.classList.add('mt-5')
+        div.innerHTML=`
+            <div class="card" style="width: 18rem;">
+                <img src="${card.image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${card.suit}</h5>
+                    <p class="card-text">${card.code}</p>
+                    <button onclick="cardDetails('${card.code}')" class="btn btn-primary">See Details</button>
+                </div>
+            </div>
         `
+        main.appendChild(div)
     }
 }
 

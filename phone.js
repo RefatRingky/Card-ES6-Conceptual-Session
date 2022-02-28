@@ -34,7 +34,7 @@ const displayPlayer = (data) => {
     const container = document.getElementById('container')
     // container.innerHTML = ''
     data.forEach(data => {
-        console.log(data);
+        // console.log(data);
         // if (data.length == 0) {
         //     alert('food not found')
 
@@ -62,30 +62,26 @@ const showDetail = (id) => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data.data))
+        .then(data => console.log(data.data.mainFeatures))
 
 }
 
 
-const displayDetails = (details) =>{
-    console.log(details);
+const displayDetails = (data) =>{
+    // console.log(details);
     const phoneDetails = document.getElementById('phone-detail');
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
     <div class="card">
-           <img src="${details.image}" class="card-img-top" alt="...">
-        //    <div class="card-body">
-        //      <h5 class="card-title">${data.mainFeatures}</h5>
-        //      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        //      <a href="${data.others}" class="btn btn-primary">Show Detail</a>
-        //    </div>
-         </div>
-         <div class="details">
-         <h2>Brand:${details.brand}</h2>
-         <p>Name:${details.name}</p>
-         <p>releaseDate:${details.releaseDate}</p>
-         </div>
+           <img src="${data.image}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">${data.mainFeatures}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="${data.others}" class="btn btn-primary">Show Detail</a>
+           </div>
+          </div>
+       
     `
     phoneDetails.appendChild(div);
 }

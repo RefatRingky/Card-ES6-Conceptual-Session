@@ -1,0 +1,10 @@
+body{
+    background-color: gainsboro;
+}
+#Search-btn{
+    color: white;
+}
+.card{
+    border-radius: 10px;
+    border: 2px solid coral;
+}

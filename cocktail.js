@@ -79,7 +79,7 @@ const displayDetail = (drinkss) => {
         div.classList.add('myStyle')
         div.innerHTML = `
         <img class='w-50'  src="${drink.strDrinkThumb}" alt="">
-        <h2> ${drink.strAlcoholic} </h2>
+        <h2> ${drink.sensors} </h2>
         <p>${drink.strIngredient2}</p>
        
        
